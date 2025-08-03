@@ -1,6 +1,8 @@
-const express = require("express");
+import express from 'express';
+import { User } from '../config/db.js';
+
 const router = express.Router();
 
 
 
-module.exports = router;
+export default router;

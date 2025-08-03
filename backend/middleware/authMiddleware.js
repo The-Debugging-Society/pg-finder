@@ -1,6 +1,8 @@
-const dotenv = require("dotenv");
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+
 dotenv.config();
-const jwt=require("jsonwebtoken");
+
 const authMiddleware=(req,res,next)=>{
     const authHeader=req.headers.authorization;
     if(!authHeader || !authHeader.startsWith('Bearer ')){
@@ -19,4 +21,4 @@ const authMiddleware=(req,res,next)=>{
         })
     }
 }
-module.exports=authMiddleware;
+export default authMiddleware;

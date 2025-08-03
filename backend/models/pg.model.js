@@ -1,21 +1,61 @@
-const mongoose=require("mongoose");
+import mongoose from 'mongoose';
 
 const pgSchema= new mongoose.Schema({
-    id:{type:String,required:true},
-    name:{type:String,required:true},
-    distanceFromNsut:{type:Number,required:true},
-    priceSingleRoom:{type:Number},
-    priceDoubleRoom:{type:Number},
-    type:{type:String,required:true,enum:["girls","boys","coed"]},
-    rating:{type:Number,min:1,max:5},
-    review:{type:[String]},
-    ownerId:{type:String,required:true},
-    ownerContact:{type:String,required:true},
-    ownerEmail:{type:String},
-    isApproved:{type:Boolean,required:true},
-    amentities:{type:[String]},
-    mealsProvided:{type:Boolean},
-    images:{type:[String]},
+    id:{
+        type:String,
+        required:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    distanceFromNsut:{
+        type:Number,
+        required:true
+    },
+    priceSingleRoom:{
+        type:Number
+    },
+    priceDoubleRoom:{
+        type:Number
+    },
+    type:{
+        type:String,
+        required:true,
+        enum:["girls","boys","coed"]
+    },
+    rating:{
+        type:Number,
+        min:1,
+        max:5
+    },
+    review:{
+        type:[String]
+    },
+    ownerId:{
+        type:String,
+        required:true
+    },
+    ownerContact:{
+        type:String,
+        required:true
+    },
+    ownerEmail:{
+        type:String
+    },
+    isApproved:{
+        type:Boolean,
+        required:true
+    },
+    amentities:{
+        type:[String]
+    },
+    mealsProvided:{
+        type:Boolean
+    },
+    images:{
+        type:[String]
+    },
 })
 
 export default pgSchema;

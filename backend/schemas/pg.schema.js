@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const pgSchema = z.object({
+const pgZodSchema = z.object({
   id: z.string(),
   name: z.string(),
   distanceFromNsut: z.number(),
@@ -17,3 +17,5 @@ export const pgSchema = z.object({
   mealsProvided: z.boolean().optional(),
   images: z.array(z.string()).optional(),
 });
+
+export default pgZodSchema;

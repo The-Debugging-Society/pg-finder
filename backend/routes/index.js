@@ -1,7 +1,10 @@
-const express=require("express");
-const userRouter=require("./user.routes");
-const pgRouter=require("./pg.routes");
+import express from 'express';
+import userRouter from "./user.routes.js";
+import pgRouter from "./pg.routes.js";
+
 const router=express.Router();
+
 router.use("/user",userRouter);
 router.use("/pg",pgRouter);
-module.exports=router;
+
+export default router;
