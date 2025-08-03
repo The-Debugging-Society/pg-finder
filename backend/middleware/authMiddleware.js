@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
-const authMiddleware=(req,res,next)=>{
+exports.verifyToken = (req,res,next) => {
     const authHeader=req.headers.authorization;
     if(!authHeader || !authHeader.startsWith('Bearer ')){
         return res.status(403).json({
@@ -20,5 +20,14 @@ const authMiddleware=(req,res,next)=>{
             msg:"Forbidden request"
         })
     }
-}
-export default authMiddleware;
+};
+
+// For role-based access (e.g., admin only)
+exports.requireRole = (role) => {
+  return (req, res, next) => {
+    if (req.user.role !== role) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
+    next();
+  };
+};
