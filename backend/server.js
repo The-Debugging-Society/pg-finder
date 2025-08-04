@@ -6,6 +6,7 @@ import mainRouter from "./routes/index.js"
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
+const authRouter = require("./routes/authRoutes.js");
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Hello from the backend!');
 });
+
+app.use('/api/auth' , authRouter);
 
 // Start the server
 app.listen(PORT, () => {
